@@ -18,5 +18,35 @@ class TestFactoryManager(unittest.TestCase):
         }
         self.assertEqual(expected_return, return_list)
 
+    def test_empty_array(self):
+        input_list = []
+        return_list = self.factorManager.return_factor(input_list)
+        expected_return = {}
+        self.assertEqual(expected_return, return_list)
+
+    def test_repeating_array(self):
+        input_list = [20,20, 2, 20, 20]
+        return_list = self.factorManager.return_factor(input_list)
+        expected_return = {
+            20: [2],
+            2: [],
+        }
+        self.assertEqual(expected_return, return_list)
+
+    def test_caching_array(self):
+        self.factorManager = FactorManager(cache=True)
+        input_list = [10,5, 2, 20]
+        return_list = self.factorManager.return_factor(input_list)
+        expected_return = {
+            10: [5, 2],
+            5: [],
+            2: [],
+            20: [10, 5, 2]
+        }
+        self.assertEqual(expected_return, return_list)
+        return_list = self.factorManager.return_factor(input_list)
+        self.assertEqual(expected_return, return_list)
+
+
 if __name__ == '__main__':
     unittest.main()
