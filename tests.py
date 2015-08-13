@@ -1,6 +1,6 @@
 __author__ = 'wenzou'
 import unittest
-from objects import FactorManager
+from objects import FactorManager, CreditLine
 
 class TestFactoryManager(unittest.TestCase):
 
@@ -47,6 +47,41 @@ class TestFactoryManager(unittest.TestCase):
         return_list = self.factorManager.return_factor(input_list)
         self.assertEqual(expected_return, return_list)
 
+class TestCreditLine(unittest.TestCase):
 
+    def setUp(self):
+        self.creditLine = CreditLine()
+
+    def test_cases_1(self):
+        self.creditLine = CreditLine(35.0)
+        self.creditLine.draw_credit(500)
+        self.creditLine.advance_days(30)
+        return_amount = self.creditLine.get_balance()
+        expected_return = 514.38
+        self.assertEqual(expected_return, return_amount)
+
+    def test_cases_2(self):
+        self.creditLine = CreditLine(35.0)
+        self.creditLine.draw_credit(500)
+        self.creditLine.advance_days(15)
+        self.creditLine.make_payment(200)
+        self.creditLine.advance_days(10)
+        #print self.creditLine.interest_charge
+        self.creditLine.draw_credit(100)
+        self.creditLine.advance_days(5)
+        #print self.creditLine.interest_charge
+
+        return_amount = self.creditLine.get_balance()
+        expected_return = 411.99
+        self.assertEqual(expected_return, return_amount)
+
+    def test_cases_3(self):
+        self.creditLine = CreditLine(35.0)
+        self.creditLine.draw_credit(500)
+        self.creditLine.advance_days(45)
+
+        return_amount = self.creditLine.get_balance()
+        expected_return = 514.38
+        self.assertEqual(expected_return, return_amount)
 if __name__ == '__main__':
     unittest.main()
