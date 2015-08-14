@@ -52,7 +52,11 @@ class CreditLine:
         if days_over_30_days >= 0:
             times_of_30, remainder_days = divmod(days_over_30_days, 30)
             #charge the interest
-            self.payments_due +=self.calculate_interest(times_of_30*30+(30-self.days))
+            self.payments_due +=self.calculate_interest((30-self.days))
+            #for all other 30s, charge and increase payments due
+            for i in range(0 ,times_of_30):
+                self.payments_due +=self.calculate_interest(30)
+
             self.payments_due += self.interest_charge
             self.interest_charge += self.calculate_interest(remainder_days)
             #reset the days to be out of 30 days

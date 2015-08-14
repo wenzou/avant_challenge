@@ -82,6 +82,18 @@ class TestCreditLine(unittest.TestCase):
 
         return_amount = self.creditLine.get_balance()
         expected_return = 514.38
+        excepted_current_interest = 7.3986676674798275
         self.assertEqual(expected_return, return_amount)
+        self.assertEqual(excepted_current_interest, self.creditLine.interest_charge)
+
+    def test_cases_4(self):
+        self.creditLine = CreditLine(35.0)
+        self.creditLine.draw_credit(500)
+        self.creditLine.advance_days(120)
+
+        return_amount = self.creditLine.get_balance()
+        expected_return = 560.06
+        self.assertEqual(expected_return, return_amount)
+
 if __name__ == '__main__':
     unittest.main()

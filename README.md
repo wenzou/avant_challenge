@@ -22,3 +22,5 @@ A web page is provided to demonstrate the factor manager
 
 ##Line of Credit 
 
+The CreditLine object is located inside the objects.py 
+It's test are located inside tests.py 
