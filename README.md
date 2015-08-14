@@ -24,3 +24,9 @@ A web page is provided to demonstrate the factor manager
 
 The CreditLine object is located inside the objects.py 
 It's test are located inside tests.py 
+
+The days are reset every 30 days. 
+To simulate action use the "advance_days" function to make transaction on a different day. 
+
+There is no web page support for this object. Please import and run this object via interactive command line. 
+Usage examples are found in tests.py 

@@ -45,6 +45,8 @@ class CreditLine:
         return self.payments_due * self.apr / 100 / 365 * days_of_interest
 
     def advance_days(self, days_to_advance):
+        if days_to_advance < 0:
+            return False
         #since this is a fictional product, we have a helper to advance the days.
         #if the total days end up to be more than 30 days.
         total_days = self.days + days_to_advance
