@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Web Application</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div id="container">
+            <div class="title">
+                <h1>Input </h1>
+            </div>
+            <div id="content">
+                <form method="post" action="/" ajaxform>
+                  <label for="input1">Please input the list of numbers, comma separated:</label>
+                  <input type="text" size="50" name="input1"/><br />
+                  <input type="submit" />
+                </form>
+            </div>
+        </div>
+        <div id="container">
+            <div class="title">
+                <h1>Results</h1>
+            </div>
+            <div id="content">
+                Results:
+                {% for data in return_data %}
+                    <p>{{ data }}'s factors: {{ return_data[data] }}</p>
+                {% endfor %}
+                {% if error %}
+                <p>{{error}}</p>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
+ 
