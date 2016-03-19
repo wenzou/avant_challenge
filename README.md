@@ -6,6 +6,8 @@ This program is developed and test on Python 2.7
 
 ##Factor and Caching
 
+This is the solution to this challenge prompt: https://github.com/avantcredit/programming_challenges/blob/master/factors_and_caching
+
 The FactorManager is located inside the objects.py 
 It's test are located inside tests.py 
 
@@ -21,6 +23,7 @@ A web page is provided to demonstrate the factor manager
 * Visit localhost:5000
 
 ##Line of Credit 
+This is the solution to this challenge prompt: https://github.com/avantcredit/programming_challenges/blob/master/line_of_credit_test
 
 The CreditLine object is located inside the objects.py 
 It's test are located inside tests.py 
